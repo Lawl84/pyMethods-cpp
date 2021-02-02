@@ -1,41 +1,17 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <sstream>
 using namespace std;
 
-
-
-
-
-
-class Pystr
+template<typename T>
+class Pyjoin
 {
 public:
-	vector<string>vecInput;
 
-	Pystr(vector<string>& other)
-	{
-		vecInput = other;
-	}
+	vector<T> vecInput;
 
-	string join(string joiner)
-	{
-		string outPut;
-		for (string& item : vecInput)
-		{
-			outPut += item;
-			outPut += joiner;
-		}
-		return outPut.substr(0, outPut.length() - joiner.length());
-	}
-};
-
-class Pyint
-{
-public:
-	vector<int>vecInput;
-
-	Pyint(vector<int>& other)
+	Pyjoin(vector<T>& other)
 	{
 		vecInput = other;
 	}
@@ -43,11 +19,20 @@ public:
 	string join(string joiner)
 	{
 		string output;
-		for (int& i : vecInput)
+		for (T& i : vecInput)
 		{
-			output += to_string(i);
+			stringstream ss;
+			ss << i;
+			output += ss.str();
 			output += joiner;
 		}
 		return output.substr(0, output.length() - joiner.length());
 	}
+
+	vector<T> split(string delim)
+	{
+
+	}
 };
+
+
