@@ -29,6 +29,17 @@ public:
 		}
 		return output.substr(0, output.length() - joiner.length());
 	}
+
+	vector<T> merge(vector<vector<T>> vectorTwo)
+	{
+		for (vector<T>& i : vectorTwo)
+		{
+			for (T& x : i)
+			{
+				vecInput.push_back(x);
+			}
+		}
+	}
 };
 
 class PyString
