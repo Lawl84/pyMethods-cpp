@@ -1,17 +1,18 @@
 #pragma once
+
 #include <string>
 #include <vector>
 #include <sstream>
 using namespace std;
 
 template<typename T>
-class Pyjoin
+class PyVector
 {
 public:
 
 	vector<T> vecInput;
 
-	Pyjoin(vector<T>& other)
+	PyVector(vector<T>& other)
 	{
 		vecInput = other;
 	}
@@ -28,11 +29,40 @@ public:
 		}
 		return output.substr(0, output.length() - joiner.length());
 	}
-
-	vector<T> split(string delim)
-	{
-
-	}
 };
 
+class PyString
+{
+public:
+	string word;
+	PyString(string& other)
+	{
+		word = other;
+	}
+
+	
+	vector<string> split(string delim)
+	{	
+		vector<string> splitList;
+		size_t rn = 0, prev = 0;
+		while (rn < word.length() && prev < word.length())
+		{
+			rn = word.find(delim, prev);
+
+			if (rn == -1)
+			{
+				rn = word.length();
+			}
+			splitList.push_back(word.substr(prev, rn - prev));
+			prev = rn + delim.length();
+		}
+
+		return splitList;
+
+
+
+	}
+
+
+};
 
