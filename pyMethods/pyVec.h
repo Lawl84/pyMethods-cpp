@@ -5,32 +5,34 @@
 #include <sstream>
 using namespace std;
 
-template<typename T>
-class PyVector
+namespace pym
 {
-	vector<T> vecInput;
-public:
-
-	
-
-	PyVector(vector<T>other)
+	template<typename T>
+	class PyVector
 	{
-		vecInput = other;
-	}
+		vector<T> vecInput;
+	public:
 
-	string join(string joiner)
-	{
-		string output;
-		for (T& i : vecInput)
+
+
+		PyVector(vector<T>other)
 		{
-			stringstream ss;
-			ss << i;
-			output += ss.str();
-			output += joiner;
+			vecInput = other;
 		}
-		return output.substr(0, output.length() - joiner.length());
-	}
-};
 
+		string join(string joiner)
+		{
+			string output;
+			for (T& i : vecInput)
+			{
+				stringstream ss;
+				ss << i;
+				output += ss.str();
+				output += joiner;
+			}
+			return output.substr(0, output.length() - joiner.length());
+		}
+	};
 
+}
 
