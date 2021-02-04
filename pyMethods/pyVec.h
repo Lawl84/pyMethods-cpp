@@ -8,14 +8,14 @@ using namespace std;
 namespace pym
 {
 	template<typename T>
-	class PyVector
+	class Vector
 	{
 		vector<T> vecInput;
 	public:
 
 
 
-		PyVector(vector<T>other)
+		Vector(vector<T>other)
 		{
 			vecInput = other;
 		}

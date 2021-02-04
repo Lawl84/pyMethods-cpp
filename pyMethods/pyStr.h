@@ -1,15 +1,16 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "pyVec.h"
 using namespace std;
-namespace Pymtds
+namespace pym
 {
-	class PyString
+	class String
 	{
 		string word;
 	public:
 
-		PyString(string other)
+		String(string other)
 		{
 			word = other;
 		}
@@ -40,11 +41,27 @@ namespace Pymtds
 			return word.substr(0, str.length()) == str;
 		}
 
+
 		bool endswith(string str)
 		{
 			return word.substr(word.length() - str.length(), word.length()) == str;
 		}
-	}
+
+		string replace(string prev, string next)
+		{
+			pym::String other(word);
+			pym::Vector<string> exc(other.split(prev));
+
+			return exc.join(next);
+
+
+		}
+		
+		/*string operator <<(pym::String& other)
+		{
+			return other.word;
+		}*/
+	};
 
 
 	
