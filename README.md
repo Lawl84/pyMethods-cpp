@@ -1,1 +1,1 @@
-#A c++ library that makes working with strings a little easier
+#A c++ library that contains a lot of methods from python methods that i enjoy using
