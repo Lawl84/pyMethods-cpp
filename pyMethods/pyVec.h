@@ -3,26 +3,25 @@
 #include <string>
 #include <vector>
 #include <sstream>
-using namespace std;
 
 namespace pym
 {
 	template<typename T>
 	class Vector
 	{
-		vector<T> vecInput;
+		std::vector<T> vecInput;
 	public:
 
 
 
-		Vector(vector<T>other)
+		Vector(std::vector<T>other)
 		{
 			vecInput = other;
 		}
 
-		string join(string joiner)
+		std::string join(std::string joiner)
 		{
-			string output;
+			std::string output;
 			for (T& i : vecInput)
 			{
 				stringstream ss;

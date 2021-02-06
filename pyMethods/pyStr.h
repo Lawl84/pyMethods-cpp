@@ -2,24 +2,23 @@
 #include <string>
 #include <vector>
 #include "pyVec.h"
-using namespace std;
 namespace pym
 {
 	class String
 	{
-		string word;
+		std::string word;
 	public:
 
-		String(string other)
+		String(std::string other)
 		{
 			word = other;
 		}
 
 
-		vector<string> split(string delim)
+		std::vector<std::string> split(std::string delim)
 		{
-			vector<string> splitList;
-			size_t rn = 0, prev = 0;
+			std::vector<std::string> splitList;
+			std::size_t rn = 0, prev = 0;
 			while (rn < word.length() && prev < word.length())
 			{
 				rn = word.find(delim, prev);
@@ -36,28 +35,28 @@ namespace pym
 
 		}
 
-		bool startswith(string str)
+		bool startswith(std::string str)
 		{
 			return word.substr(0, str.length()) == str;
 		}
 
 
-		bool endswith(string str)
+		bool endswith(std::string str)
 		{
 			return word.substr(word.length() - str.length(), word.length()) == str;
 		}
 
-		string replace(string prev, string next)
+		std::string replace(std::string prev, std::string next)
 		{
 			pym::String other(word);
-			pym::Vector<string> exc(other.split(prev));
+			pym::Vector<std::string> exc(other.split(prev));
 
 			return exc.join(next);
 
-
+		
 		}
 
-		friend ostream& operator<<(ostream& out, const pym::String& other)
+		friend std::ostream& operator<<(std::ostream& out, const pym::String& other)
 		{
 			out << other.word;
 			return out;
