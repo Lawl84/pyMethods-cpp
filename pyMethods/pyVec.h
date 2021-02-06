@@ -24,7 +24,7 @@ namespace pym
 			std::string output;
 			for (T& i : vecInput)
 			{
-				stringstream ss;
+				std::stringstream ss;
 				ss << i;
 				output += ss.str();
 				output += joiner;
