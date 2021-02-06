@@ -56,11 +56,14 @@ namespace pym
 
 
 		}
-		
-		/*string operator <<(pym::String& other)
+
+		friend ostream& operator<<(ostream& out, const pym::String& other)
 		{
-			return other.word;
-		}*/
+			out << other.word;
+			return out;
+		}
+		
+		
 	};
 
 
