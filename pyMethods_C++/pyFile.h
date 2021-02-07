@@ -53,6 +53,7 @@ namespace pym
 			f << contents;
 		}
 
+
 		void writelines(std::vector<T> contents)
 		{
 			std::ofstream f(this->filename);
@@ -62,6 +63,11 @@ namespace pym
 			}
 		}
 
+		void close()
+		{
+			std::ofstream f(this->filename);
+			f.close();
+		}
 
 	};
 }
