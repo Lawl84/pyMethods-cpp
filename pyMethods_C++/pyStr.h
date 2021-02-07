@@ -19,18 +19,28 @@ namespace pym
         std::vector<std::string> split(std::string delim)
         {
             std::vector<std::string> splitList;
-            std::size_t rn = 0, prev = 0;
-            while (rn < word.length() && prev < word.length())
+            if (!(delim == ""))
             {
-                rn = word.find(delim, prev);
-
-                if (rn == -1)
+                
+                std::size_t rn = 0, prev = 0;
+                while (rn < word.length() && prev < word.length())
                 {
-                    rn = word.length();
+                    rn = word.find(delim, prev);
+
+                    if (rn == -1)
+                    {
+                        rn = word.length();
+                    }
+                    splitList.push_back(word.substr(prev, rn - prev));
+                    prev = rn + delim.length();
                 }
-                splitList.push_back(word.substr(prev, rn - prev));
-                prev = rn + delim.length();
+                std::vector<std::string>* splitListptr = &splitList;
             }
+            else
+                for (int i = 0; i < word.length(); i++)
+                {
+                    splitList.push_back(std::string(1, word[i]));
+                }
 
             return splitList;
 

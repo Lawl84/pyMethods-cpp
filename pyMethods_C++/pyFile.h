@@ -13,6 +13,9 @@ namespace pym
 	public:
 		std::string filename;
 
+
+
+ 
 		File(std::string filename)
 		{
 			this->filename = filename;
@@ -30,7 +33,6 @@ namespace pym
 			return vOut;
 			
 		}
-
 		std::vector<T> read()
 		{
 			std::vector<T> vOut;
@@ -41,6 +43,23 @@ namespace pym
 				vOut.push_back(in);
 			}
 			return vOut;
+		}
+
+		
+		void write(const T& contents)
+		{
+			std::ofstream f(this->filename);
+			
+			f << contents;
+		}
+
+		void writelines(std::vector<T> contents)
+		{
+			std::ofstream f(this->filename);
+			for (T& i : contents)
+			{
+				f << i << "\n";
+			}
 		}
 
 
