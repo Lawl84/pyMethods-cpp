@@ -31,6 +31,7 @@ namespace pym
 				vOut.push_back(in);
 			}
 			return vOut;
+			f.close();
 			
 		}
 		std::vector<T> read()
@@ -43,6 +44,7 @@ namespace pym
 				vOut.push_back(in);
 			}
 			return vOut;
+			f.close();
 		}
 
 		
@@ -51,6 +53,7 @@ namespace pym
 			std::ofstream f(this->filename);
 			
 			f << contents;
+			f.close();
 		}
 
 
@@ -61,6 +64,7 @@ namespace pym
 			{
 				f << i << "\n";
 			}
+			f.close();
 		}
 
 		void close()
