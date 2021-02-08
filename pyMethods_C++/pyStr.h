@@ -16,7 +16,7 @@ namespace pym
         }
 
 
-        std::vector<std::string> split(std::string delim)
+        std::vector<std::string> split(std::string delim) const
         {
             std::vector<std::string> splitList;
             if (!(delim == ""))
@@ -57,7 +57,7 @@ namespace pym
             return word.substr(word.length() - str.length(), word.length()) == str;
         }
 
-        std::string replace(std::string prev, std::string next)
+        std::string replace(std::string prev, std::string next) const
         {
             pym::String other(word);
             pym::Vector<std::string> exc(other.split(prev));
@@ -96,7 +96,7 @@ namespace pym
             return lower;
         }
 
-        std::string upper()
+        std::string upper() const
         {
             std::vector<char> upperChar(word.length());
             for (int i = 0; i < word.length(); i++)
@@ -108,7 +108,7 @@ namespace pym
         }
 
             
-        std::string lower()
+        std::string lower() const
         {
             std::vector<char> lowerChar(word.length());
             for (int i = 0; i < word.length(); i++)

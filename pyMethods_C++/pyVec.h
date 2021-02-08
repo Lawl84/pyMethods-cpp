@@ -35,7 +35,7 @@ namespace pym
             return output.substr(0, output.length() - joiner.length());
         }
 
-        std::vector<T> reverse()
+        std::vector<T> reverse() const
         {
             std::vector<T> vOutput(this->vecInput.size());
             if (this->vecInput.size() > 1)
